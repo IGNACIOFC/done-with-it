@@ -4,13 +4,15 @@ import React from 'react'
 import colors from '../../config/colors'
 import ListItem from '../../components/ListItem/ListItem'
 
-export default function ListingDetaisScreen() {
+export default function ListingDetaisScreen({route}) {
+  const { item } = route.params;
+
   return (
     <View>
-      <Image style={styles.image} source={require('../../assets/jacket.jpg')}/>
+      <Image style={styles.image} source={item.img}/>
       <View style={styles.details}>
-        <Text style={styles.title}>Red Jacket for sale!</Text>
-        <Text style={styles.subtitle}>100 €</Text>
+        <Text style={styles.title}>{item.title}</Text>
+        <Text style={styles.subtitle}>{item.subtitle}</Text>
         <ListItem title={'Ignacio Fernandez'} subtitle={'5 Listings'} image={require('../../assets/mosh.jpg')}/>
       </View>
     </View>

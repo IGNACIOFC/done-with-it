@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet } from 'react-native'
+import { FlatList, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 
 import Screen from '../../components/Screen'
@@ -9,26 +9,30 @@ const listings = [
   {
     id: 1,
     title: 'Red jacket for sale!',
-    subtitle: '100 €'
+    subtitle: '100 €',
+    img: require('../../assets/jacket.jpg')
   }, 
   {
     id: 2,
-    title: 'Red jacket for sale!',
-    subtitle: '100 €'
+    title: 'New couch for sale!',
+    subtitle: '1000 €',
+    img: require('../../assets/couch.jpg')
   }
 ]
 
-export default function ListingsScreen() {
+export default function ListingsScreen({navigation}) {
   return (
     <Screen style={styles.listingsContainer}>
       <FlatList 
         data={listings}
         renderItem={({item}) => (
-          <ProductCard 
-          title={item.title}
-          subtitle={item.subtitle}
-          image={require('../../assets/jacket.jpg')}
-        />
+          <TouchableOpacity onPress={() => navigation.navigate('Details', {item})}>
+            <ProductCard 
+            title={item.title}
+            subtitle={item.subtitle}
+            image={item.img}
+            />
+          </TouchableOpacity>
         )}
       />
     </Screen>

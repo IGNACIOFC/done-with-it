@@ -1,17 +1,18 @@
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
-import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes'
+import { useNavigation } from '@react-navigation/native'
+
 import colors from '../../config/colors'
 
 export default function ProductCard({title, subtitle, image}) {
   return (
-    <View style={styles.cardContainer}>
-      <Image source={image} style={styles.img}/>
-      <View style={styles.detailsContainer}>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.subtitle}>{subtitle}</Text>
+      <View style={styles.cardContainer} >
+        <Image source={image} style={styles.img}/>
+        <View style={styles.detailsContainer}>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.subtitle}>{subtitle}</Text>
+        </View>
       </View>
-    </View>
   )
 }
 
