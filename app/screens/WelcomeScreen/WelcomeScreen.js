@@ -16,7 +16,7 @@ export default function WelcomeScreen({ navigation }) {
         </View>
         <View style={styles.buttonsContainer}>
           <AppButton title={'Login'} onPress={()=>navigation.navigate('Listings')}/>
-          <AppButton title={'Sign Up'} color={'secondary'}/>
+          <AppButton title={'Sign Up'} color={'secondary'} onPress={()=>navigation.navigate('Account')}/>
         </View>
     </ImageBackground>
     

@@ -1,16 +1,19 @@
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import colors from '../../config/colors'
 
-export default function ListItem({title, subtitle, image}) {
+export default function ListItem({title, subtitle, image, IconComponent, onPress}) {
   return (
-    <View style={styles.listItemContainer}>
-      <Image style={styles.image} source={image}/>
-      <View style={styles.listItemDetails}>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.subtitle}>{subtitle}</Text>
+    <TouchableOpacity onPress={onPress}>
+      <View style={styles.listItemContainer}>
+        {IconComponent}
+        { image && <Image style={styles.image} source={image}/> }
+        <View style={styles.listItemDetails}>
+          <Text style={styles.title}>{title}</Text>
+          {subtitle && <Text style={styles.subtitle}>{subtitle}</Text>}
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
   )
 }
 
@@ -23,9 +26,12 @@ const styles = StyleSheet.create({
   listItemContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    backgroundColor: colors.white,
+    padding: 15
   },
   listItemDetails: {
-    paddingLeft: 20,
+    paddingLeft: 12,
+    justifyContent: 'center'
   },
 
   subtitle: {
