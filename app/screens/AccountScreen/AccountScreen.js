@@ -49,7 +49,6 @@ export default function AccountScreen() {
         />
       </View>
       <ListItem title={'Log Out'} IconComponent={<IconComponent name={'logout'} backgroundColor={'#ffe66d'}/>}/>
-      <AppTextInput icon='email' placeholder='Username'/>
     </Screen>
     
   )

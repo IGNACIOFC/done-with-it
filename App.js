@@ -8,6 +8,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import AccountScreen from './app/screens/AccountScreen';
 import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
 import ListingsScreen from './app/screens/ListingsScreen';
+import LoginScreen from './app/screens/LoginScreen/LoginScreen';
 import WelcomeScreen from './app/screens/WelcomeScreen';
 
 const Stack = createNativeStackNavigator();
@@ -16,7 +17,7 @@ const StackNavigator = function () {
       <Stack.Navigator 
       initialRouteName="Home"
       screenOptions={{
-        headerShown: true
+        headerShown: false
       }}>
         <Stack.Screen name="Account" component={AccountScreen} />
         <Stack.Screen name="Home" component={WelcomeScreen} />
@@ -32,7 +33,7 @@ function TabNavigator() {
     <Tab.Navigator>
       <Tab.Screen 
         name="Feed" 
-        component={ListingsScreen}
+        component={LoginScreen}
         options={{
           tabBarIcon: ({size}) => (
             <MaterialCommunityIcons name='home' size={size}/>
