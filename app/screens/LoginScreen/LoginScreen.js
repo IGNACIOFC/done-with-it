@@ -4,10 +4,8 @@ import * as Yup from 'yup'
  
 import Screen from '../../components/Screen'
 import colors from '../../config/colors'
-import FormField from '../../components/FormField'
-import FormSubmit from '../../components/FormSubmit'
-import FormComponent from '../../components/FormComponent'
-
+import FormField from '../../components/forms/FormField'
+import { FormComponent, FormSubmit } from '../../components/forms'
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
   password: Yup.string().required().min(4).label("Password")
